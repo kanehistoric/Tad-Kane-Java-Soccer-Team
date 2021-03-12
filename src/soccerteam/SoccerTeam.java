@@ -31,6 +31,10 @@ public class SoccerTeam {
         System.out.println("Name\t\tPosition\tJersey\t\tSalary\t\tGoals\tAssists");
         System.out.println("---------------------------------------------------------------------------------------\n");
     }
+    
+    public void jerseyNumber(ArrayList<Roster> team)   {
+        System.out.println("The number of the first player is: " + team.get(0).jersey_number);
+    }
 
     /**
      * @param args the command line arguments
