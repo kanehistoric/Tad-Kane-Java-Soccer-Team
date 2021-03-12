@@ -16,16 +16,16 @@ public class SoccerTeam {
         System.out.println("***************************************************\n");
         System.out.println("Soccer Team Roster Report\n");
         
-        System.out.println("Number of Players: " + Roster.count);
+        System.out.println("Number of Players: " + Roster.getCount());
         //System.out.println("Team Salary: " + fmt.format(total_salary));
         //Use a for loop to add up total salaries
         double total_salary =0;
         for(int i = 0; i < teamRoster.size(); i++)
         {
-            total_salary += teamRoster.get(i).salary;
+            total_salary += teamRoster.get(i).getSalary();
         }
         System.out.println("Team Salary: " + fmt.format(total_salary));
-        System.out.println("Average Player Salary: " + fmt.format(total_salary/Roster.count) +"\n");
+        System.out.println("Average Player Salary: " + fmt.format(total_salary/Roster.getCount()) +"\n");
         
         System.out.println("Player Roster Details:\n");
         System.out.println("Name\t\tPosition\tJersey\t\tSalary\t\tGoals\tAssists");
@@ -33,7 +33,7 @@ public class SoccerTeam {
     }
     
     public void jerseyNumber(ArrayList<Roster> team)   {
-        System.out.println("The number of the first player is: " + team.get(0).jersey_number);
+        System.out.println("The number of the first player is: " + team.get(0).getJersey_number());
     }
 
     /**
@@ -81,7 +81,7 @@ public class SoccerTeam {
         
         //The listIterator method on ArrayList returns a ListIterator object that can be
         //used to iterate through the items in the list. Use .hasNext and .next to loop through elements of the list.
-        for(int i=0; i < Roster.count; i++)  //Use the count state variable instead of calling team.size()
+        for(int i=0; i < Roster.getCount(); i++)  //Use the count state variable instead of calling team.size()
             System.out.println(team.get(i).toPrint());
         
         //NOW LET'S TAKE IN ANY UPDATES TO INFORMATION ABOUT THE TEAM
@@ -109,9 +109,9 @@ public class SoccerTeam {
             double salary = kbReader.nextDouble();
             System.out.println("You entered: " + salary);  //debug just to make sure nextDouble is working correct.
             
-            for(int i=0; i < Roster.count; i++)
+            for(int i=0; i < Roster.getCount(); i++)
             {
-                if(team.get(i).name.equalsIgnoreCase(name))
+                if(team.get(i).getName().equalsIgnoreCase(name))
                 {
                     team.get(i).update(goals, assists, salary);
                     break;                         
@@ -130,10 +130,10 @@ public class SoccerTeam {
                                                     //team.get(i).salary is the salary of that particular player.
         printDetail(team);                  //
         
-        for(int i=0; i < Roster.count; i++)
+        for(int i=0; i < Roster.getCount(); i++)
             System.out.println(team.get(i).toPrint());
         out.println("Size of ArrayList using the .size() method: " + team.size());
-        out.println("Size of ArrayList using the Roster.count static variable: " + Roster.count);
+        out.println("Size of ArrayList using the Roster.count static variable: " + Roster.getCount());
     }
     
 }

@@ -13,13 +13,14 @@ import java.text.NumberFormat;
  * @author rkane
  */
 public class Roster {
-    public String name, position;      
-    public int jersey_number; 
-    public double salary;
-    public int goals;
-    public int assists;
-    public static int count =0;  //This will keep track of how many players.
-     
+    private String name; 
+    private String position;
+    private int jersey_number;
+    private double salary;
+    private int goals;  //This will keep track of how many players.
+    private int assists;
+    private static int count = 0;
+
     public Roster(String name, String position, int jersey_number, double salary, int goals, int assists)
     {
         this.name = name;
@@ -32,13 +33,111 @@ public class Roster {
         count++;
         
     }
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the position
+     */
+    public String getPosition() {
+        return position;
+    }
+
+    /**
+     * @param position the position to set
+     */
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    /**
+     * @return the jersey_number
+     */
+    public int getJersey_number() {
+        return jersey_number;
+    }
+
+    /**
+     * @param jersey_number the jersey_number to set
+     */
+    public void setJersey_number(int jersey_number) {
+        this.jersey_number = jersey_number;
+    }
+
+    /**
+     * @return the salary
+     */
+    public double getSalary() {
+        return salary;
+    }
+
+    /**
+     * @param salary the salary to set
+     */
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    /**
+     * @return the goals
+     */
+    public int getGoals() {
+        return goals;
+    }
+
+    /**
+     * @param goals the goals to set
+     */
+    public void setGoals(int goals) {
+        this.goals = goals;
+    }
+
+    /**
+     * @return the assists
+     */
+    public int getAssists() {
+        return assists;
+    }
+
+    /**
+     * @param assists the assists to set
+     */
+    public void setAssists(int assists) {
+        this.assists = assists;
+    }
+
+    /**
+     * @return the count
+     */
+    public static int getCount() {
+        return count;
+    }
+
+    /**
+     * @param aCount the count to set
+     */
+    public static void setCount(int aCount) {
+        count = aCount;
+    }
+    
     
     public void update(int goal, int asts, double sal) 
     {
         
-        goals += goal;
-        assists += asts;
-        salary = sal;
+        setGoals(getGoals() + goal);
+        setAssists(getAssists() + asts);
+        setSalary(sal);
         
     }
     
@@ -73,7 +172,7 @@ public class Roster {
         
         NumberFormat fmt = NumberFormat.getCurrencyInstance();
         
-        return capitalize2(name) + "\t" + capitalize(position) + "\t\t" + jersey_number +"\t\t" + fmt.format(salary) + "\t" + goals + "\t" + assists;
+        return capitalize2(getName()) + "\t" + capitalize(getPosition()) + "\t\t" + getJersey_number() +"\t\t" + fmt.format(getSalary()) + "\t" + getGoals() + "\t" + getAssists();
 
     }
 }
