@@ -4,6 +4,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.*;
 import static java.lang.System.*;   //so you can just write .out.println()
+import javax.swing.JOptionPane;
 
 /*
  * @author rkane
@@ -49,17 +50,20 @@ public class SoccerTeam {
         
         while(answer.equalsIgnoreCase("yes"))
         {
-            System.out.println("What is the player's name?: ");
-            String name = kbReader.nextLine();
-        
-            System.out.println("What is the player's Position? (Offense, Defense, or Mid: ");
+            //System.out.println("What is the player's name?: ");
+            //String name = kbReader.nextLine();
+            String name = JOptionPane.showInputDialog("What is the player's name? ");
+                            
+            System.out.println("What is the player's Position? (Offense, Defense, or Mid): ");
             String position = kbReader.next();
             
-            System.out.println("What is the player's jersey Number?: ");
-            int number = kbReader.nextInt();
+            //System.out.println("What is the player's jersey Number?: ");
+            //int number = kbReader.nextInt();
+            int number = Integer.parseInt(JOptionPane.showInputDialog("What is the player's number? "));
             
-            System.out.println("What is the player's Salary?: ");
-            int salary = kbReader.nextInt();
+            //System.out.println("What is the player's Salary?: ");
+            //int salary = kbReader.nextInt();
+            double salary = Double.parseDouble(JOptionPane.showInputDialog("What is the player's salary? "));
             
             System.out.println("How many Goals does the player have currently?: ");
             int goals = kbReader.nextInt();
